@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuButtonHandler : MonoBehaviour
 {
@@ -15,4 +14,16 @@ public class MenuButtonHandler : MonoBehaviour
     {
         
     }
+
+    public void Play()
+    {
+        SceneManager.LoadScene("BasicScene", LoadSceneMode.Single);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+    
+    
 }
