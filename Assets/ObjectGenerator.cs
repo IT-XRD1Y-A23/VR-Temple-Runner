@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CubeGenerator : MonoBehaviour
 {
-    public GameObject cubePrefab; // Drag your cube prefab to this field in the Unity editor
+    public GameObject cubePrefab1, cubePrefab2, cubePrefab3; // Drag your cube prefab to this field in the Unity editor
     public int numberOfCubes = 10; // Adjust the number of cubes as needed
 
     void Start()
@@ -58,10 +58,27 @@ public class CubeGenerator : MonoBehaviour
 
             // Create a cube at the randomly generated position
             Vector3 cubePosition = new Vector3(randomX, yPos, randomZ);
-            GameObject cube = Instantiate(cubePrefab, cubePosition, Quaternion.identity);
+
+            int randomValueCube = random.Next(1, 4);
+            switch (randomValueCube)
+            {
+                case 1:
+                    GameObject cube1 = Instantiate(cubePrefab1, cubePosition, Quaternion.identity);
+                    cube1.transform.parent = transform;
+                    break;
+                case 2:
+                    GameObject cube2 = Instantiate(cubePrefab2, cubePosition, Quaternion.identity);
+                    cube2.transform.parent = transform;
+                    break;
+                case 3:
+                    GameObject cube3 = Instantiate(cubePrefab3, cubePosition, Quaternion.identity);
+                    cube3.transform.parent = transform;
+                    break;
+            }
+            // GameObject cube = Instantiate(cubePrefab1, cubePosition, Quaternion.identity);
 
             // Make the cube a child of the shape
-            cube.transform.parent = transform;
+            //cube.transform.parent = transform;
         }
     }
 
