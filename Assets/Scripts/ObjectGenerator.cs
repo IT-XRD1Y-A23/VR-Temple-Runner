@@ -21,4 +21,5 @@ public class PlatformGenerator : MonoBehaviour
             Instantiate(cubePrefab, spawnPosition, Quaternion.identity, transform);
         }
     }
+    
 }
