@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00019134337, g: 0.00021900459, b: 0.00019134337, a: 1}
+  m_IndirectSpecularColor: {r: 0.00017392496, g: 0.00021897083, b: 0.00017392496, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -888,7 +888,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1327367479
 MeshRenderer:
@@ -1830,6 +1830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeRed
       objectReference: {fileID: 0}
+    - target: {fileID: 4042323903094672794, guid: 2c59463de027a5245a5b098dd6064424, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5409285558218846700, guid: 2c59463de027a5245a5b098dd6064424, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -2281,7 +2285,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.36144
+  m_Height: 0.99
   m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.5
@@ -4643,6 +4647,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4744752358158250797, guid: 031dddb3ea97d3146b43556710c426b4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5008050414356487361, guid: 031dddb3ea97d3146b43556710c426b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15
@@ -4690,6 +4698,10 @@ PrefabInstance:
     - target: {fileID: 7583985319462650199, guid: 031dddb3ea97d3146b43556710c426b4, type: 3}
       propertyPath: m_Name
       value: CubeBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7583985319462650199, guid: 031dddb3ea97d3146b43556710c426b4, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4856,9 +4868,10 @@ GameObject:
   - component: {fileID: 3127728407541706733}
   - component: {fileID: 3297350933295859779}
   - component: {fileID: 4090221840438350099}
+  - component: {fileID: 7873184976941804767}
   m_Layer: 2
   m_Name: XR Origin (XR Rig)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4894,6 +4907,22 @@ MonoBehaviour:
   m_CameraFloorOffsetObject: {fileID: 9014170783615920160}
   m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 1.36144
+--- !u!114 &7873184976941804767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696548424182836575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectControllerL: {fileID: 9014170785090376829}
+  _objectControllerR: {fileID: 9014170783538599042}
+  _objectHeadset: {fileID: 9014170783435387907}
+  _objectPlayer: {fileID: 7696548424182836575}
 --- !u!1 &8063056433360759732
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,9 +5308,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2323848749888672548, guid: 1a2e6a3a3a327644fa27a10d15b91901, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8036770548311637948, guid: 1a2e6a3a3a327644fa27a10d15b91901, type: 3}
       propertyPath: m_Name
       value: CubeGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036770548311637948, guid: 1a2e6a3a3a327644fa27a10d15b91901, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5402,6 +5439,7 @@ GameObject:
   - component: {fileID: 9014170783435387911}
   - component: {fileID: 3127728407541706721}
   - component: {fileID: 452463682}
+  - component: {fileID: 9014170783435387912}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5468,6 +5506,27 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9014170783435387907}
   m_Enabled: 1
+--- !u!65 &9014170783435387912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9014170783435387907}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22, y: 0.39, z: 0.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9014170783538599042
 GameObject:
   m_ObjectHideFlags: 0
