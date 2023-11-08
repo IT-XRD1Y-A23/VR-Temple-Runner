@@ -7,6 +7,7 @@ public class PathGenerator : MonoBehaviour
     public float segmentMoveSpeed = 5.0f; // Speed at which the segments move towards the player
     public int numberOfSegmentsOnScreen = 5;
     private float segmentLength;
+    public int completedSegments = 0;
 
     private List<GameObject> activeSegments = new List<GameObject>();
 
@@ -41,8 +42,8 @@ public class PathGenerator : MonoBehaviour
         
         go.transform.position = new Vector3(transform.position.x, transform.position.y, (activeSegments.Count) * segmentLength);
         activeSegments.Add(go);
-        /*go.transform.position = Vector3.forward * (activeSegments.Count) * segmentLength;
-        activeSegments.Add(go);*/
+        
+        Debug.Log("Spawned new segment at start.");
     }
 
     void SpawnSegment()
@@ -54,13 +55,15 @@ public class PathGenerator : MonoBehaviour
         go.transform.position = new Vector3(transform.position.x, transform.position.y, (activeSegments.Count - 1) * segmentLength);
         activeSegments.Add(go);
         
-        /*go.transform.position = Vector3.forward * (activeSegments.Count - 1) * segmentLength;
-        activeSegments.Add(go);*/
+        Debug.Log("Spawned new segment.");
     }
 
     void DeleteSegment()
     {
         Destroy(activeSegments[0]);
         activeSegments.RemoveAt(0);
+        completedSegments++; 
+        
+        Debug.Log($"Deleted a segment. Total completed segments: {completedSegments}");
     }
 }
