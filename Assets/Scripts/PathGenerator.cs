@@ -38,16 +38,24 @@ public class PathGenerator : MonoBehaviour
     {
         GameObject go = Instantiate(pathSegments[Random.Range(0, pathSegments.Count)]);
         go.transform.SetParent(transform);
-        go.transform.position = Vector3.forward * (activeSegments.Count) * segmentLength;
+        
+        go.transform.position = new Vector3(transform.position.x, transform.position.y, (activeSegments.Count) * segmentLength);
         activeSegments.Add(go);
+        /*go.transform.position = Vector3.forward * (activeSegments.Count) * segmentLength;
+        activeSegments.Add(go);*/
     }
 
     void SpawnSegment()
     {
         GameObject go = Instantiate(pathSegments[Random.Range(0, pathSegments.Count)]);
         go.transform.SetParent(transform);
-        go.transform.position = Vector3.forward * (activeSegments.Count - 1) * segmentLength;
+        
+        
+        go.transform.position = new Vector3(transform.position.x, transform.position.y, (activeSegments.Count - 1) * segmentLength);
         activeSegments.Add(go);
+        
+        /*go.transform.position = Vector3.forward * (activeSegments.Count - 1) * segmentLength;
+        activeSegments.Add(go);*/
     }
 
     void DeleteSegment()

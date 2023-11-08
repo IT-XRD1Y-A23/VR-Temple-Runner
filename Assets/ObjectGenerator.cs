@@ -7,7 +7,9 @@ public class CubeGenerator : MonoBehaviour
 
     void Start()
     {
-        GenerateCubesOnTop();
+        //GenerateCubesOnTop();
+
+        GenerateCubesWithinBounds();
     }
 
     void Update()
@@ -88,6 +90,50 @@ public class CubeGenerator : MonoBehaviour
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
+        }
+    }
+    
+    void GenerateCubesWithinBounds()
+    {
+        // Assuming your shape is a GameObject with a collider
+        Collider shapeCollider = GetComponent<Collider>();
+
+        if (shapeCollider == null)
+        {
+            Debug.LogError("Shape must have a collider for cube generation to work.");
+            return;
+        }
+
+        // Get the bounds of the shape
+        Bounds shapeBounds = shapeCollider.bounds;
+
+        for (int i = 0; i < numberOfCubes; i++)
+        {
+            // Randomly generate positions within the bounds of the shape
+            float randomX = Random.Range(shapeBounds.min.x + (float)0.15, shapeBounds.max.x - (float)0.15);
+            float randomY = Random.Range(shapeBounds.min.y + (float)0.15, shapeBounds.max.y - (float)0.15);
+            float randomZ = Random.Range(shapeBounds.min.z + (float)0.15, shapeBounds.max.z - (float)0.15);
+
+            // Create a cube at the randomly generated position within the bounds
+            Vector3 cubePosition = new Vector3(randomX, randomY, randomZ);
+
+            System.Random random = new System.Random();
+            int randomValueCube = random.Next(1, 4);
+            switch (randomValueCube)
+            {
+                case 1:
+                    GameObject cube1 = Instantiate(cubePrefab1, cubePosition, Quaternion.identity);
+                    cube1.transform.parent = transform;
+                    break;
+                case 2:
+                    GameObject cube2 = Instantiate(cubePrefab2, cubePosition, Quaternion.identity);
+                    cube2.transform.parent = transform;
+                    break;
+                case 3:
+                    GameObject cube3 = Instantiate(cubePrefab3, cubePosition, Quaternion.identity);
+                    cube3.transform.parent = transform;
+                    break;
+            }
         }
     }
 }
