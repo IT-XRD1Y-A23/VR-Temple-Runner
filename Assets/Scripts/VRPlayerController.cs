@@ -18,11 +18,14 @@ public class VRPlayerController : MonoBehaviour
     
     void OnTriggerEnter(Collider PlayerCollider)
     {
-        Debug.Log("hello "+ PlayerCollider.gameObject.name);
+     
+        if (PlayerCollider.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("hello "+ PlayerCollider.gameObject.name);
 
-        SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
-        
+            SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
 
+        }
 
     }
 }
