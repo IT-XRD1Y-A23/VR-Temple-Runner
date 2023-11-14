@@ -19,7 +19,10 @@ public class VRPlayerController : MonoBehaviour
     void OnTriggerEnter(Collider PlayerCollider)
     {
         Debug.Log("hello "+ PlayerCollider.gameObject.name);
+
         SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
+        
+
 
     }
 }

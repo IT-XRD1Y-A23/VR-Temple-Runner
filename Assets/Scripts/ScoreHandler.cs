@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     private float currentScore = 0.0f;
     private float currentIncreaseSpeed;
 
+    public scoreObj ScoreObj;
+
     void Start()
     {
         currentIncreaseSpeed = initialIncreaseSpeed;
@@ -25,5 +27,7 @@ public class ScoreManager : MonoBehaviour
 
         // Increase the speed over time
         currentIncreaseSpeed += accelerationRate * Time.deltaTime;
+
+        ScoreObj.score = Mathf.RoundToInt(currentScore);
     }
 }
