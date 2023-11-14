@@ -19,15 +19,13 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        // Update the score based on the current speed
-        currentScore += currentIncreaseSpeed * Time.deltaTime;
+       
+        ScoreObj.score += Mathf.RoundToInt(currentIncreaseSpeed * Time.deltaTime);
 
-        // Update the TextMeshPro label
-        scoreLabel.text = "Score: " + Mathf.RoundToInt(currentScore);
-
-        // Increase the speed over time
         currentIncreaseSpeed += accelerationRate * Time.deltaTime;
 
-        ScoreObj.score = Mathf.RoundToInt(currentScore);
+        Mathf.RoundToInt(ScoreObj.score);
+        scoreLabel.text = "Score: " + ScoreObj.score;
     }
+
 }

@@ -13,7 +13,7 @@ public class PathGenerator : MonoBehaviour
 
     void Start()
     {
-        segmentLength = pathSegments[0].transform.localScale.z;
+        segmentLength = GetColliderSizeZ(pathSegments[0]);
 
         for (int i = 0; i < numberOfSegmentsOnScreen; i++)
         {
@@ -35,14 +35,28 @@ public class PathGenerator : MonoBehaviour
         }
     }
 
+    float GetColliderSizeZ(GameObject obj)
+    {
+        Collider collider = obj.GetComponent<Collider>();
+        if (collider != null)
+        {
+            // Assuming the collider is a box collider
+            return collider.bounds.size.z;
+        }
+
+        // Return a default value if no collider is found
+        return 1.0f;
+    }
+
     void SpawnSegmentAtStart()
     {
         GameObject go = Instantiate(pathSegments[Random.Range(0, pathSegments.Count)]);
         go.transform.SetParent(transform);
-        
-        go.transform.position = new Vector3(transform.position.x, transform.position.y, (activeSegments.Count) * segmentLength);
+
+        float segmentZ = (activeSegments.Count) * segmentLength;
+        go.transform.position = new Vector3(transform.position.x, transform.position.y, segmentZ);
         activeSegments.Add(go);
-        
+
         Debug.Log("Spawned new segment at start.");
     }
 
@@ -50,11 +64,11 @@ public class PathGenerator : MonoBehaviour
     {
         GameObject go = Instantiate(pathSegments[Random.Range(0, pathSegments.Count)]);
         go.transform.SetParent(transform);
-        
-        
-        go.transform.position = new Vector3(transform.position.x, transform.position.y, (activeSegments.Count - 1) * segmentLength);
+
+        float segmentZ = (activeSegments.Count - 1) * segmentLength;
+        go.transform.position = new Vector3(transform.position.x, transform.position.y, segmentZ);
         activeSegments.Add(go);
-        
+
         Debug.Log("Spawned new segment.");
     }
 
@@ -62,8 +76,8 @@ public class PathGenerator : MonoBehaviour
     {
         Destroy(activeSegments[0]);
         activeSegments.RemoveAt(0);
-        completedSegments++; 
-        
+        completedSegments++;
+
         Debug.Log($"Deleted a segment. Total completed segments: {completedSegments}");
     }
 }

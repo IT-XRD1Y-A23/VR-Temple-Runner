@@ -6,6 +6,8 @@ using UnityEngine.XR;
 public class VRPlayerController : MonoBehaviour
 {
 
+    public scoreObj myScore;
+
     void Start()
     {
 
@@ -27,5 +29,11 @@ public class VRPlayerController : MonoBehaviour
 
         }
 
+
+        if (PlayerCollider.gameObject.tag == "Coin")
+        {
+            Debug.Log("coinsss");
+            myScore.score += 100;
+        }
     }
 }
