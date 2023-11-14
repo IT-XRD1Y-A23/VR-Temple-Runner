@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.00029763402, g: 0.00029763402, b: 0.00029763402, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1176,7 +1176,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 3, z: 1}
+  m_Size: {x: 0.5, y: 2.25, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1327367479
 MeshRenderer:
@@ -2119,12 +2119,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeRed
       objectReference: {fileID: 0}
+    - target: {fileID: 3770563874982602872, guid: 2c59463de027a5245a5b098dd6064424, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4042323903094672794, guid: 2c59463de027a5245a5b098dd6064424, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5409285558218846700, guid: 2c59463de027a5245a5b098dd6064424, type: 3}
       propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409285558218846700, guid: 2c59463de027a5245a5b098dd6064424, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409285558218846700, guid: 2c59463de027a5245a5b098dd6064424, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5409285558218846700, guid: 2c59463de027a5245a5b098dd6064424, type: 3}
@@ -4133,8 +4145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 0
-  scoreObj: {fileID: 0}
 --- !u!114 &6694496370938551395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4987,7 +4997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008050414356487361, guid: 031dddb3ea97d3146b43556710c426b4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5008050414356487361, guid: 031dddb3ea97d3146b43556710c426b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5008050414356487361, guid: 031dddb3ea97d3146b43556710c426b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5592,8 +5606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 0
-  scoreObj: {fileID: 0}
 --- !u!4 &8424601471724619653
 Transform:
   m_ObjectHideFlags: 0
@@ -5620,11 +5632,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2173826160349956334, guid: 1a2e6a3a3a327644fa27a10d15b91901, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2173826160349956334, guid: 1a2e6a3a3a327644fa27a10d15b91901, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2173826160349956334, guid: 1a2e6a3a3a327644fa27a10d15b91901, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5926,8 +5938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 0
-  scoreObj: {fileID: 0}
 --- !u!1 &9014170783538599042
 GameObject:
   m_ObjectHideFlags: 0
@@ -6881,8 +6891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 0
-  scoreObj: {fileID: 0}
 --- !u!114 &9032954039906936830
 MonoBehaviour:
   m_ObjectHideFlags: 0
