@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR;
+
 
 public class VRPlayerController : MonoBehaviour
 {
@@ -23,7 +22,11 @@ public class VRPlayerController : MonoBehaviour
      
         if (playerCollider.gameObject.CompareTag("Obstacle"))
         {
-            cubeHitSound.Play();
+            if (!audioSettings.audioDisabled)
+            {
+                 cubeHitSound.Play();
+            }
+       
             SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
         }
 
@@ -32,7 +35,8 @@ public class VRPlayerController : MonoBehaviour
         
         Debug.Log("Coin collected");
         myScoreHandler.HitCoin();
-            coinPickupSound.Play();
+        if(!audioSettings.audioDisabled) {   coinPickupSound.Play(); }
+         
 
     }
 }
