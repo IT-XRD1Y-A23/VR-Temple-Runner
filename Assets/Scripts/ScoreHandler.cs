@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreHandler : MonoBehaviour
 {
     public TextMeshProUGUI scoreLabel;
     public float initialIncreaseSpeed = 1.0f;
@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     private float currentScore = 0.0f;
     private float currentIncreaseSpeed;
 
-    public scoreObj ScoreObj;
+    public scoreObj myScore;
 
     void Start()
     {
@@ -19,13 +19,22 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-       
-        ScoreObj.score += Mathf.RoundToInt(currentIncreaseSpeed * Time.deltaTime);
-
+        // Increment the score over time
+        currentScore += currentIncreaseSpeed * Time.deltaTime;
         currentIncreaseSpeed += accelerationRate * Time.deltaTime;
 
-        Mathf.RoundToInt(ScoreObj.score);
-        scoreLabel.text = "Score: " + ScoreObj.score;
+        // Update the score object
+        myScore.score = Mathf.RoundToInt(currentScore);
+
+        // Update the UI
+        scoreLabel.text = "Score: " + myScore.score;
     }
 
+    public void HitCoin()
+    {
+        Debug.Log("Hit coin");
+        currentScore += 100; // Add 100 to currentScore
+        myScore.score = Mathf.RoundToInt(currentScore); // Update myScore.score
+        scoreLabel.text = "Score: " + myScore.score; // Update the UI
+    }
 }

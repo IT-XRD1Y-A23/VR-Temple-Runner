@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,34 +7,26 @@ using UnityEngine.XR;
 public class VRPlayerController : MonoBehaviour
 {
 
-    public scoreObj myScore;
+    public ScoreHandler myScoreHandler;
 
-    void Start()
+    private void Start()
     {
-
+       
     }
 
-    void Update()
-    {
-      
-    }
-    
-    void OnTriggerEnter(Collider PlayerCollider)
+    private void OnTriggerEnter(Collider playerCollider)
     {
      
-        if (PlayerCollider.gameObject.tag == "Obstacle")
+        if (playerCollider.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("hello "+ PlayerCollider.gameObject.name);
-
             SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
-
         }
 
 
-        if (PlayerCollider.gameObject.tag == "Coin")
-        {
-            Debug.Log("coinsss");
-            myScore.score += 100;
-        }
+        if (!playerCollider.gameObject.CompareTag("Coin")) return;
+        
+        Debug.Log("Coin collected");
+        myScoreHandler.HitCoin();
+     
     }
 }

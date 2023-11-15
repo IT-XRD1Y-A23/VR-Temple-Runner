@@ -57,7 +57,7 @@ public class PathGenerator : MonoBehaviour
         go.transform.position = new Vector3(transform.position.x, transform.position.y, segmentZ);
         activeSegments.Add(go);
 
-        Debug.Log("Spawned new segment at start.");
+       
     }
 
     void SpawnSegment()
@@ -68,8 +68,6 @@ public class PathGenerator : MonoBehaviour
         float segmentZ = (activeSegments.Count - 1) * segmentLength;
         go.transform.position = new Vector3(transform.position.x, transform.position.y, segmentZ);
         activeSegments.Add(go);
-
-        Debug.Log("Spawned new segment.");
     }
 
     void DeleteSegment()
@@ -77,7 +75,5 @@ public class PathGenerator : MonoBehaviour
         Destroy(activeSegments[0]);
         activeSegments.RemoveAt(0);
         completedSegments++;
-
-        Debug.Log($"Deleted a segment. Total completed segments: {completedSegments}");
     }
 }
