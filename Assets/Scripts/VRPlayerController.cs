@@ -8,10 +8,13 @@ public class VRPlayerController : MonoBehaviour
 {
 
     public ScoreHandler myScoreHandler;
-
-    private void Start()
+    public scoreObj myScore;
+    public AudioSource coinPickupSound;
+    public AudioSource cubeHitSound;¨
+    
+    void Start()
     {
-       
+        myScore.score = 0;
     }
 
     private void OnTriggerEnter(Collider playerCollider)
@@ -19,6 +22,8 @@ public class VRPlayerController : MonoBehaviour
      
         if (playerCollider.gameObject.CompareTag("Obstacle"))
         {
+            
+            cubeHitSound.Play();
             SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
         }
 
@@ -27,6 +32,7 @@ public class VRPlayerController : MonoBehaviour
         
         Debug.Log("Coin collected");
         myScoreHandler.HitCoin();
-     
+            coinPickupSound.Play();
+
     }
 }
