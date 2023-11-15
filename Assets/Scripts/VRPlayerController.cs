@@ -5,12 +5,12 @@ using UnityEngine.XR;
 
 public class VRPlayerController : MonoBehaviour
 {
-
     public scoreObj myScore;
-
+    public AudioSource coinPickupSound;
+    public AudioSource cubeHitSound;
     void Start()
     {
-
+        myScore.score = 0;
     }
 
     void Update()
@@ -23,7 +23,8 @@ public class VRPlayerController : MonoBehaviour
      
         if (PlayerCollider.gameObject.tag == "Obstacle")
         {
-            Debug.Log("hello "+ PlayerCollider.gameObject.name);
+            
+            cubeHitSound.Play();
 
             SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
 
@@ -32,7 +33,13 @@ public class VRPlayerController : MonoBehaviour
 
         if (PlayerCollider.gameObject.tag == "Coin")
         {
+
+
+            coinPickupSound.Play();
+           
+
             Debug.Log("coinsss");
+
             myScore.score += 100;
         }
     }

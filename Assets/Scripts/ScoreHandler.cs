@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
     public float initialIncreaseSpeed = 1.0f;
     public float accelerationRate = 0.1f;
 
-    private float currentScore = 0.0f;
+    //private float currentScore = 0.0f;
     private float currentIncreaseSpeed;
 
     public scoreObj ScoreObj;
@@ -20,11 +20,9 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
        
-        ScoreObj.score += Mathf.RoundToInt(currentIncreaseSpeed * Time.deltaTime);
+        ScoreObj.score = Mathf.RoundToInt(currentIncreaseSpeed * Time.deltaTime);
 
         currentIncreaseSpeed += accelerationRate * Time.deltaTime;
-
-        Mathf.RoundToInt(ScoreObj.score);
         scoreLabel.text = "Score: " + ScoreObj.score;
     }
 
