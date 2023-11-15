@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.00017392496, g: 0.00021897083, b: 0.00017392496, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   scoreLabel: {fileID: 374035818}
   initialIncreaseSpeed: 5
   accelerationRate: 0.1
-  ScoreObj: {fileID: 11400000, guid: 7073bfa7f43562943a2b312215581959, type: 2}
+  myScore: {fileID: 11400000, guid: 7073bfa7f43562943a2b312215581959, type: 2}
 --- !u!4 &733158344
 Transform:
   m_ObjectHideFlags: 0
@@ -4713,6 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myScoreHandler: {fileID: 0}
   myScore: {fileID: 0}
   coinPickupSound: {fileID: 0}
   cubeHitSound: {fileID: 0}
@@ -6181,6 +6182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myScoreHandler: {fileID: 0}
   myScore: {fileID: 0}
   coinPickupSound: {fileID: 0}
   cubeHitSound: {fileID: 0}
@@ -6520,6 +6522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myScoreHandler: {fileID: 733158343}
   myScore: {fileID: 11400000, guid: 7073bfa7f43562943a2b312215581959, type: 2}
   coinPickupSound: {fileID: 2002637539}
   cubeHitSound: {fileID: 1864337743}
@@ -7476,6 +7479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c083f470fedb584e9e1b6f21ade12a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myScoreHandler: {fileID: 0}
   myScore: {fileID: 0}
   coinPickupSound: {fileID: 0}
   cubeHitSound: {fileID: 0}
