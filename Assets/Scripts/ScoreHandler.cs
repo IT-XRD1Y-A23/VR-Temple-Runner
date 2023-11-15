@@ -7,9 +7,10 @@ public class ScoreHandler : MonoBehaviour
     public float initialIncreaseSpeed = 1.0f;
     public float accelerationRate = 0.1f;
 
+    
     //private float currentScore = 0.0f;
     private float currentIncreaseSpeed;
-
+    private float currentScore;
     public scoreObj myScore;
 
     void Start()
