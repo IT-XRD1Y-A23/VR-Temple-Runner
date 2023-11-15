@@ -2881,7 +2881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreObj: {fileID: 11400000, guid: 7073bfa7f43562943a2b312215581959, type: 2}
   buttonClickSound: {fileID: 645544903}
-  audioToggle: {fileID: 0}
+  audioToggle: {fileID: 1164171389}
   audioSettings: {fileID: 11400000, guid: 0b427e0cfedfc5940a86c3bc18ead819, type: 2}
 --- !u!1 &1262396218
 GameObject:

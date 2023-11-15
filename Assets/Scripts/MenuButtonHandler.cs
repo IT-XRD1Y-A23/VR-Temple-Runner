@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class MenuButtonHandler : MonoBehaviour
 {
-
-    
     public scoreObj scoreObj;
     public AudioSource buttonClickSound;
     public Toggle audioToggle;
@@ -15,8 +13,10 @@ public class MenuButtonHandler : MonoBehaviour
     {
 
         audioToggle.onValueChanged.AddListener(ToggleAudio);
+        audioToggle.isOn = audioSettings.audioDisabled;
+        buttonClickSound.Stop();
     }
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -25,13 +25,16 @@ public class MenuButtonHandler : MonoBehaviour
 
     public void Play()
     {
-        buttonClickSound.Play();
+        if(!audioSettings.audioDisabled) { buttonClickSound.Play();
+        }
+       
         SceneManager.LoadScene("BasicScene", LoadSceneMode.Single);
     }
 
     public void Exit()
     {
-        buttonClickSound.Play();
+        if(!audioSettings.audioDisabled) {  buttonClickSound.Play();}
+       
         Application.Quit();
     }
     private void ToggleAudio(bool isAudioDisabled)

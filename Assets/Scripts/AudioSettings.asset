@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affe57fbde9f0534aa354fa6ffe78c70, type: 3}
   m_Name: AudioSettings
   m_EditorClassIdentifier: 
-  audioDisabled: 0
+  audioDisabled: 1
