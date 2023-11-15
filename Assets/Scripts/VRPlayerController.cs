@@ -8,6 +8,7 @@ public class VRPlayerController : MonoBehaviour
     public scoreObj myScore;
     public AudioSource coinPickupSound;
     public AudioSource cubeHitSound;
+    public AudioSettings audioSettings;
     void Start()
     {
         myScore.score = 0;
