@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,43 +6,33 @@ using UnityEngine.XR;
 
 public class VRPlayerController : MonoBehaviour
 {
+
+    public ScoreHandler myScoreHandler;
     public scoreObj myScore;
     public AudioSource coinPickupSound;
     public AudioSource cubeHitSound;
     public AudioSettings audioSettings;
+    
     void Start()
     {
         myScore.score = 0;
     }
 
-    void Update()
-    {
-      
-    }
-    
-    void OnTriggerEnter(Collider PlayerCollider)
+    private void OnTriggerEnter(Collider playerCollider)
     {
      
-        if (PlayerCollider.gameObject.tag == "Obstacle")
+        if (playerCollider.gameObject.CompareTag("Obstacle"))
         {
-            
             cubeHitSound.Play();
-
             SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
-
         }
 
 
-        if (PlayerCollider.gameObject.tag == "Coin")
-        {
-
-
+        if (!playerCollider.gameObject.CompareTag("Coin")) return;
+        
+        Debug.Log("Coin collected");
+        myScoreHandler.HitCoin();
             coinPickupSound.Play();
-           
 
-            Debug.Log("coinsss");
-
-            myScore.score += 100;
-        }
     }
 }

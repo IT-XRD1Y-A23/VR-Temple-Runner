@@ -6,8 +6,5 @@ using UnityEngine;
 [CreateAssetMenu]
 public class scoreObj : ScriptableObject
 {
-
     public int score;
-
-
 }

@@ -37,7 +37,7 @@ public class CubeGenerator : MonoBehaviour
         // Adjust the number of cubes based on the number of completed segments
         int cubesToGenerate = baseNumberOfCubes + (pathGenerator.completedSegments); // Example of difficulty curve
 
-        Debug.Log($"Generating {cubesToGenerate} cubes within bounds.");
+   
         
         for (int i = 0; i < cubesToGenerate; i++)
         {
@@ -79,7 +79,7 @@ public class CubeGenerator : MonoBehaviour
         // Adjust the number of cubes based on the number of completed segments
         int coinsToGenerate = baseNumberOfCoins + (pathGenerator.completedSegments); // Example of difficulty curve
 
-        Debug.Log($"Generating {coinsToGenerate} coins within bounds.");
+
 
         for (int i = 0; i < coinsToGenerate; i++)
         {
