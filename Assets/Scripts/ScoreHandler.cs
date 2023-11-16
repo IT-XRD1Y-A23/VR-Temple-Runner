@@ -4,6 +4,7 @@ using TMPro;
 public class ScoreHandler : MonoBehaviour
 {
     public TextMeshProUGUI scoreLabel;
+    public TextMeshPro scoreLabelInScene;
     public float initialIncreaseSpeed = 1.0f;
     public float accelerationRate = 0.1f;
 
@@ -29,6 +30,8 @@ public class ScoreHandler : MonoBehaviour
 
         // Update the UI
         scoreLabel.text = "Score: " + myScore.score;
+        scoreLabelInScene.text = "Score: " + myScore.score;
+
     }
 
     public void HitCoin()
@@ -37,5 +40,6 @@ public class ScoreHandler : MonoBehaviour
         currentScore += 100; // Add 100 to currentScore
         myScore.score = Mathf.RoundToInt(currentScore); // Update myScore.score
         scoreLabel.text = "Score: " + myScore.score; // Update the UI
+        scoreLabelInScene.text = "Score: " + myScore.score; // Update the UI
     }
 }
