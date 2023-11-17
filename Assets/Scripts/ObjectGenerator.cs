@@ -44,7 +44,7 @@ public class CubeGenerator : MonoBehaviour
         for (int i = 0; i < cubesToGenerate; i++)
         {
             float randomX = Random.Range(shapeBounds.min.x + 0.15f, shapeBounds.max.x - 0.15f);
-            float randomY = Random.Range(shapeBounds.min.y + 0.15f, shapeBounds.max.y - 0.15f);
+            float randomY = Random.Range(shapeBounds.min.y + 0.50f, shapeBounds.max.y - 0.15f);
             float randomZ = Random.Range(shapeBounds.min.z + 0.15f, shapeBounds.max.z - 0.15f);
 
             Vector3 cubePosition = new Vector3(randomX, randomY, randomZ);
