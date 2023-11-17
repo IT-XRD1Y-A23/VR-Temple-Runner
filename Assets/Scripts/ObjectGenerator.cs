@@ -4,17 +4,62 @@ public class CubeGenerator : MonoBehaviour
 {
     public GameObject cubePrefab1, cubePrefab2, cubePrefab3, coin, target; // Drag your cube prefab to this field in the Unity editor
     public int baseNumberOfCubes = 10;
+    public enum Difficulty { Low, Medium, High }
+
+
     public int baseNumberOfCoins = 2;
+
     public int baseNumberOfTargets = 2;
     public PathGenerator pathGenerator;
+    private double difficultyMultiplier = 1;
+
     void Start()
     {
+        LoadDifficultyFromPrefs();
         GenerateCubesWithinBounds();
         GenerateCoinsWithinBounds();
         GenerateTargetsWithinBounds();
     }
 
- 
+    public void SetDifficulty(Difficulty difficulty)
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Low:
+                difficultyMultiplier = 0.5;
+                break;
+            case Difficulty.Medium:
+                difficultyMultiplier = 1;
+                break;
+            case Difficulty.High:
+                difficultyMultiplier = 2;
+                break;
+        }
+        // Optional: Destroy existing objects if difficulty changes during gameplay
+        // DestroyExistingObjects();
+        // Generate again with new difficulty
+    }
+    void LoadDifficultyFromPrefs()
+    {
+        string savedDifficulty = PlayerPrefs.GetString("Difficulty", "Medium");
+        Debug.Log("Loaded Difficulty: " + savedDifficulty); // Add this line
+
+        switch (savedDifficulty)
+        {
+            case "Low":
+                SetDifficulty(Difficulty.Low);
+                break;
+            case "Medium":
+                SetDifficulty(Difficulty.Medium);
+                break;
+            case "High":
+                SetDifficulty(Difficulty.High);
+                break;
+            default:
+                SetDifficulty(Difficulty.Medium); // Default to Medium if something goes wrong
+                break;
+        }
+    }
 
     void GenerateCubesWithinBounds()
     {
@@ -37,10 +82,9 @@ public class CubeGenerator : MonoBehaviour
         Bounds shapeBounds = shapeCollider.bounds;
 
         // Adjust the number of cubes based on the number of completed segments
-        int cubesToGenerate = baseNumberOfCubes + (pathGenerator.completedSegments); // Example of difficulty curve
+        int cubesToGenerate = (int)(baseNumberOfCubes * difficultyMultiplier + pathGenerator.completedSegments); // Example of difficulty curve
 
-   
-        
+
         for (int i = 0; i < cubesToGenerate; i++)
         {
             float randomX = Random.Range(shapeBounds.min.x + 0.15f, shapeBounds.max.x - 0.15f);
