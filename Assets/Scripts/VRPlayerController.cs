@@ -40,7 +40,7 @@ public class VRPlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider playerCollider)
     {
      
-        if (playerCollider.gameObject.CompareTag("Obstacle"))
+        if (playerCollider.gameObject.CompareTag("Obstacle") || playerCollider.gameObject.CompareTag("Bound"))
         {
             if (!audioSettings.audioDisabled)
             {
