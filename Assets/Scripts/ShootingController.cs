@@ -9,6 +9,8 @@ public class ShootingController : MonoBehaviour
     public scoreObj scoreObj;
     public ScoreHandler myScoreHandler;
     public float rayRange = 10;
+    public AudioSource cubeShootSound;
+
 
     public LayerMask targetLayer;
 
@@ -54,7 +56,7 @@ public class ShootingController : MonoBehaviour
     void Shoot(RaycastHit hit)
     {
         Destroy(hit.collider.gameObject);
-
+        cubeShootSound.Play();
         // Revert the color after the specified delay
         myScoreHandler.HitTarget();
     }
